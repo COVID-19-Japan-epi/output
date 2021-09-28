@@ -1,0 +1,21 @@
+name: "サイトタイトル"
+navbar: 
+  title: "研究結果"
+  left:
+    - text: "Home"
+      href: index.html
+  right:
+    - text: "実効再生産数"
+      href: kani_epi.html
+    - text: "ワクチン効果"
+      href: ve_test_negative.html
+output:
+  html_document:
+    theme: cosmo
+    highlight: textmate
+    toc: true
+    toc_float:
+      collapse: false
+    df_print: "kable"
+    css: site_style.css
+output_dir: "docs"
