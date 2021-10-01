@@ -6,7 +6,7 @@ navbar:
     - text: "Home"
       icon: fa-home
       href: index.html
-    - text: "研究結果"
+    - text: "研究"
       icon: fa-navicon
       menu:
         - text: "実効再生産数"
