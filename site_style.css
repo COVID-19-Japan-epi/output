@@ -1,5 +1,5 @@
 h1 {
-  color: #006;
+  color: #005;
 }
 h2 {
   color: #039;
@@ -13,7 +13,36 @@ h3 {
   padding-top: 15px;
 }
 
+body {
+  background-color: #f8f8f8	;
+}
+
 footer {
   margin-top: 20px;
   border-top: 1px solid #006;
+}
+
+.hero-image {
+    position: relative;
+    margin-bottom: 2em;
+    background-image: linear-gradient( rgba(0,0,0,.2), rgba(0,0,0,.2) ), url(cover_image.png); 
+    height: 200px;
+    background-size: cover;
+    background-color: #141c25f2;
+    background-position: center center;
+    display: flex;     justify-content: center;
+    align-items: center;
+}
+
+.bottom-text {
+  position: relative;
+  letter-spacing: 0.065em;
+  line-height: 1em;
+  font-size: 68px;
+  text-transform: uppercase;
+  text-align: center;
+  display: block; 
+  color: #ffffff;
+  margin-bottom: 2.5rem;
+  font-weight: bold;
 }

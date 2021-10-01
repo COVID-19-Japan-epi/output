@@ -1,6 +1,7 @@
 name: "サイトタイトル"
+cover-image: "./data/george-peabody-library-ge3858f4eb_1920.png"
 navbar: 
-  title: "Reseach COVID-19 Japan"
+  title: "Research COVID-19 Japan"
   left:
     - text: "Home"
       icon: fa-home
@@ -18,7 +19,7 @@ output:
     highlight: espresso
     include:
       after_body: footer.html
-    toc: true
+    toc: false
     toc_float:
       collapse: false
     df_print: "kable"
