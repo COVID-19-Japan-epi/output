@@ -1,18 +1,23 @@
 name: "サイトタイトル"
 navbar: 
-  title: "研究結果"
+  title: "Reseach COVID-19 Japan"
   left:
     - text: "Home"
+      icon: fa-home
       href: index.html
-  right:
-    - text: "実効再生産数"
-      href: kani_epi.html
-    - text: "ワクチン効果"
-      href: ve_test_negative.html
+    - text: "研究結果"
+      icon: fa-navicon
+      menu:
+        - text: "実効再生産数"
+          href: kani_epi.html
+        - text: "ワクチン効果"
+          href: ve_test_negative.html
 output:
   html_document:
-    theme: cosmo
-    highlight: textmate
+    theme: united
+    highlight: espresso
+    include:
+      after_body: footer.html
     toc: true
     toc_float:
       collapse: false
