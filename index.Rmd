@@ -7,6 +7,19 @@ output:
       after_body: footer.html
 ---
 
+<!--html_preserve-->
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-RZPE2D0C48"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-RZPE2D0C48');
+</script>
+
+<!--/html_preserve-->
+
 ## 本サイトについて##
 
 本サイトは日本のCOVID-19関連の研究成果を発表する目的で研究者有志によって運営されています。
