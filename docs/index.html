@@ -28,6 +28,9 @@
        h6 {font-size: 12px;}
        code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
        pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
 <script src="site_libs/navigation-1.1/tabsets.js"></script>
 <script src="site_libs/accessible-code-block-0.0.1/empty-anchor.js"></script>
 <link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
@@ -35,7 +38,7 @@
 <div class="hero-image"> 
         <div class="image-text">
           <div class="top-text"></div>
-            <div class="bottom-text">Research COVID-19 Japan</div>
+            <div class="bottom-text">COVID-19 Research Japan</div>
         </div>
 </div>
 
@@ -215,6 +218,69 @@ $(document).ready(function () {
 
 
 
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
 
 </head>
 
@@ -222,6 +288,16 @@ $(document).ready(function () {
 
 
 <div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
 
 
 
@@ -234,7 +310,7 @@ $(document).ready(function () {
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="index.html">Research COVID-19 Japan</a>
+      <a class="navbar-brand" href="index.html">COVID-19 Research Japan</a>
     </div>
     <div id="navbar" class="navbar-collapse collapse">
       <ul class="nav navbar-nav">
@@ -255,13 +331,18 @@ $(document).ready(function () {
   </a>
   <ul class="dropdown-menu" role="menu">
     <li>
-      <a href="kani_epi.html">実効再生産数</a>
+      <a href="ve_nagasaki.html">新型コロナワクチンの有効性に関する研究</a>
     </li>
   </ul>
 </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
-        
+        <li>
+  <a href="about.html">サイトポリシー</a>
+</li>
+<li>
+  <a href="inquiry.html">お問い合わせ</a>
+</li>
       </ul>
     </div><!--/.nav-collapse -->
   </div><!--/.container -->
@@ -287,30 +368,23 @@ $(document).ready(function () {
 </script>
 
 
-<div id="本サイトについて" class="section level2">
-<h2>本サイトについて</h2>
-<p>本サイトは日本のCOVID-19関連の研究成果を発表する目的で研究者有志によって運営されています。</p>
-<p>各コンテンツについては、それぞれの著者に問い合わせをお願い致します。</p>
-<p>研究内容以外の本サイトに関するご意見・ご質問等は以下のメールアドレスにメールを頂けますと幸いです。</p>
-<p><a href="mailto:covid-19_japan_epi@outlook.jp" class="email">covid-19_japan_epi@outlook.jp</a></p>
-<p>鈴木基</p>
+<div id="新型コロナワクチンの有効性" class="section level2">
+<h2>新型コロナワクチンの有効性</h2>
+<div id="新型コロナワクチンの有効性に関する研究-国内多施設共同症例対照研究" class="section level3">
+<h3><a href="https://covid-19-japan-epi.github.io/output/ve_nagasaki.html">新型コロナワクチンの有効性に関する研究 〜国内多施設共同症例対照研究〜</a></h3>
+<p>掲載日：2021年10月5日</p>
+<p><strong>著者</strong></p>
+<p>前田　遥、森本浩之輔（長崎大学熱帯医学研究所呼吸器感染症学分野）</p>
+<p><strong>要約</strong></p>
+<p>現在、国内において実臨床上での新型コロナワクチンの有効性を評価した研究は十分ではない。長崎大学熱帯医学研究所を中心とする研究チームは、全国の医療機関（病院および診療所）と協力し、新型コロナワクチンの有効性を評価する研究を2021年7月1日から開始した。2021年7月1日～8月31日のデータを用いて暫定結果をまとめたところ、16歳～64歳において、ファイザー社製あるいはモデルナ社製いずれかのワクチンの2回接種による発症予防における有効性は86.8%(95%信頼区間：71.0～94.0%)、ファイザー社製ワクチンに限定すると、2回接種による発症予防における有効性は85.6%(95%信頼区間：67.6～93.6%)と推定された。本報告は長期サーベイランス研究の一部であり、9月以降も研究は継続しており、随時アップデートした結果を報告する予定である。なお、長期サーベイランスを行うことで、変異株やブースター接種によってワクチンの有効性がどのように変動するかを評価する予定である。</p>
 </div>
-<div id="著作権について" class="section level2">
-<h2>著作権について</h2>
-<p>本サイトで提供されるデータは、クリエイティブ・コモンズ【表示4.0国際】ライセンスに従う限り自由に複製または改変してご利用頂けます。</p>
-</div>
-<div id="リンクについて" class="section level2">
-<h2>リンクについて</h2>
-<p>本サイトへのリンクは自由に行なって頂けます。</p>
-</div>
-<div id="免責事項" class="section level2">
-<h2>免責事項</h2>
-<p>ユーザは本サイトの各コンテンツまたはそこに含まれる情報を、ユーザご自身の判断と責任において利用して頂くものとします。</p>
 </div>
 
 <a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a> <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">クリエイティブ・コモンズ 表示 4.0 国際 ライセンス</a>の下に提供されています。
 
 
+</div>
+</div>
 
 </div>
 
@@ -343,6 +417,35 @@ $(document).ready(function () {
 
 <!-- code folding -->
 
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
 
 <!-- dynamically load mathjax for compatibility with self-contained -->
 <script>

@@ -1,16 +1,18 @@
+p {line-height: 2em;}
+
 h1 {
   color: #005;
 }
 h2 {
-  color: #039;
+  color: #0024b3;
   border-bottom: 1px solid #039;
-  margin-top: 35px;
-  padding-top: 20px;
+  margin-top: 24px;
+  padding-top: 14px;
 }
 h3 {
-  color: #03f;
-  margin-top: 20px;
-  padding-top: 15px;
+  color: #039;
+  margin-top: 14px;
+  padding-top: 10px;
 }
 
 body {

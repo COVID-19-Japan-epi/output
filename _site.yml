@@ -1,7 +1,7 @@
 name: "サイトタイトル"
 cover-image: "./data/george-peabody-library-ge3858f4eb_1920.png"
 navbar: 
-  title: "Research COVID-19 Japan"
+  title: "COVID-19 Research Japan"
   left:
     - text: "Home"
       icon: fa-home
@@ -9,8 +9,13 @@ navbar:
     - text: "研究"
       icon: fa-navicon
       menu:
-        - text: "実効再生産数"
-          href: kani_epi.html
+        - text: "新型コロナワクチンの有効性に関する研究"
+          href: ve_nagasaki.html
+  right:
+    - text: "サイトポリシー"
+      href: about.html
+    - text: "お問い合わせ"
+      href: inquiry.html
 output:
   html_document:
     theme: united
