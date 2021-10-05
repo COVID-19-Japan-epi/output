@@ -25,7 +25,7 @@ output:
 
 ## 新型コロナワクチンの有効性
 
-### [新型コロナワクチンの有効性に関する研究 〜国内多施設共同症例対照研究〜](https://covid-19-japan-epi.github.io/output/ve_nagasaki.html)
+### [新型コロナワクチンの有効性に関する研究 〜国内多施設共同症例対照研究〜](https://covid-19-japan-epi.github.io/output/新型コロナワクチンの有効性研究.html)
 
 掲載日：2021年10月5日
 

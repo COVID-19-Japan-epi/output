@@ -10,7 +10,7 @@ navbar:
       icon: fa-navicon
       menu:
         - text: "新型コロナワクチンの有効性に関する研究"
-          href: ve_nagasaki.html
+          href: 新型コロナワクチンの有効性研究.html
   right:
     - text: "サイトポリシー"
       href: about.html
