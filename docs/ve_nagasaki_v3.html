@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<meta charset="utf-8" />
+<meta name="generator" content="pandoc" />
+<meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
+
+
+
+
+<title>ve_nagasaki_v3.knit</title>
+
+<script src="site_libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<link href="site_libs/bootstrap-3.3.5/css/united.min.css" rel="stylesheet" />
+<script src="site_libs/bootstrap-3.3.5/js/bootstrap.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/html5shiv.min.js"></script>
+<script src="site_libs/bootstrap-3.3.5/shim/respond.min.js"></script>
+<style>h1 {font-size: 34px;}
+       h1.title {font-size: 38px;}
+       h2 {font-size: 30px;}
+       h3 {font-size: 24px;}
+       h4 {font-size: 18px;}
+       h5 {font-size: 16px;}
+       h6 {font-size: 12px;}
+       code {color: inherit; background-color: rgba(0, 0, 0, 0.04);}
+       pre:not([class]) { background-color: white }</style>
+<script src="site_libs/jqueryui-1.11.4/jquery-ui.min.js"></script>
+<link href="site_libs/tocify-1.9.1/jquery.tocify.css" rel="stylesheet" />
+<script src="site_libs/tocify-1.9.1/jquery.tocify.js"></script>
+<script src="site_libs/navigation-1.1/tabsets.js"></script>
+<link href="site_libs/tabwid-1.0.0/tabwid.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/all.css" rel="stylesheet" />
+<link href="site_libs/font-awesome-5.1.0/css/v4-shims.css" rel="stylesheet" />
+
+<style type="text/css">
+  code{white-space: pre-wrap;}
+  span.smallcaps{font-variant: small-caps;}
+  span.underline{text-decoration: underline;}
+  div.column{display: inline-block; vertical-align: top; width: 50%;}
+  div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  ul.task-list{list-style: none;}
+    </style>
+
+
+
+
+
+
+<link rel="stylesheet" href="site_style.css" type="text/css" />
+
+
+
+<style type = "text/css">
+.main-container {
+  max-width: 940px;
+  margin-left: auto;
+  margin-right: auto;
+}
+img {
+  max-width:100%;
+}
+.tabbed-pane {
+  padding-top: 12px;
+}
+.html-widget {
+  margin-bottom: 20px;
+}
+button.code-folding-btn:focus {
+  outline: none;
+}
+summary {
+  display: list-item;
+}
+pre code {
+  padding: 0;
+}
+</style>
+
+
+<style type="text/css">
+.dropdown-submenu {
+  position: relative;
+}
+.dropdown-submenu>.dropdown-menu {
+  top: 0;
+  left: 100%;
+  margin-top: -6px;
+  margin-left: -1px;
+  border-radius: 0 6px 6px 6px;
+}
+.dropdown-submenu:hover>.dropdown-menu {
+  display: block;
+}
+.dropdown-submenu>a:after {
+  display: block;
+  content: " ";
+  float: right;
+  width: 0;
+  height: 0;
+  border-color: transparent;
+  border-style: solid;
+  border-width: 5px 0 5px 5px;
+  border-left-color: #cccccc;
+  margin-top: 5px;
+  margin-right: -10px;
+}
+.dropdown-submenu:hover>a:after {
+  border-left-color: #adb5bd;
+}
+.dropdown-submenu.pull-left {
+  float: none;
+}
+.dropdown-submenu.pull-left>.dropdown-menu {
+  left: -100%;
+  margin-left: 10px;
+  border-radius: 6px 0 6px 6px;
+}
+</style>
+
+<script type="text/javascript">
+// manage active state of menu based on current page
+$(document).ready(function () {
+  // active menu anchor
+  href = window.location.pathname
+  href = href.substr(href.lastIndexOf('/') + 1)
+  if (href === "")
+    href = "index.html";
+  var menuAnchor = $('a[href="' + href + '"]');
+
+  // mark it active
+  menuAnchor.tab('show');
+
+  // if it's got a parent navbar menu mark it active as well
+  menuAnchor.closest('li.dropdown').addClass('active');
+
+  // Navbar adjustments
+  var navHeight = $(".navbar").first().height() + 15;
+  var style = document.createElement('style');
+  var pt = "padding-top: " + navHeight + "px; ";
+  var mt = "margin-top: -" + navHeight + "px; ";
+  var css = "";
+  // offset scroll position for anchor links (for fixed navbar)
+  for (var i = 1; i <= 6; i++) {
+    css += ".section h" + i + "{ " + pt + mt + "}\n";
+  }
+  style.innerHTML = "body {" + pt + "padding-bottom: 40px; }\n" + css;
+  document.head.appendChild(style);
+});
+</script>
+
+<!-- tabsets -->
+
+<style type="text/css">
+.tabset-dropdown > .nav-tabs {
+  display: inline-table;
+  max-height: 500px;
+  min-height: 44px;
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.tabset-dropdown > .nav-tabs > li.active:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li.active:before {
+  content: "&#xe258;";
+  border: none;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open:before {
+  content: "";
+  font-family: 'Glyphicons Halflings';
+  display: inline-block;
+  padding: 10px;
+  border-right: 1px solid #ddd;
+}
+
+.tabset-dropdown > .nav-tabs > li.active {
+  display: block;
+}
+
+.tabset-dropdown > .nav-tabs > li > a,
+.tabset-dropdown > .nav-tabs > li > a:focus,
+.tabset-dropdown > .nav-tabs > li > a:hover {
+  border: none;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: transparent;
+}
+
+.tabset-dropdown > .nav-tabs.nav-tabs-open > li {
+  display: block;
+  float: none;
+}
+
+.tabset-dropdown > .nav-tabs > li {
+  display: none;
+}
+</style>
+
+<!-- code folding -->
+
+
+
+<style type="text/css">
+
+#TOC {
+  margin: 25px 0px 20px 0px;
+}
+@media (max-width: 768px) {
+#TOC {
+  position: relative;
+  width: 100%;
+}
+}
+
+@media print {
+.toc-content {
+  /* see https://github.com/w3c/csswg-drafts/issues/4434 */
+  float: right;
+}
+}
+
+.toc-content {
+  padding-left: 30px;
+  padding-right: 40px;
+}
+
+div.main-container {
+  max-width: 1200px;
+}
+
+div.tocify {
+  width: 20%;
+  max-width: 260px;
+  max-height: 85%;
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+  div.tocify {
+    width: 25%;
+  }
+}
+
+@media (max-width: 767px) {
+  div.tocify {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+.tocify ul, .tocify li {
+  line-height: 20px;
+}
+
+.tocify-subheader .tocify-item {
+  font-size: 0.90em;
+}
+
+.tocify .list-group-item {
+  border-radius: 0px;
+}
+
+
+</style>
+
+
+
+</head>
+
+<body>
+
+
+<div class="container-fluid main-container">
+
+
+<!-- setup 3col/9col grid for toc_float and main content  -->
+<div class="row">
+<div class="col-xs-12 col-sm-4 col-md-3">
+<div id="TOC" class="tocify">
+</div>
+</div>
+
+<div class="toc-content col-xs-12 col-sm-8 col-md-9">
+
+
+
+
+<div class="navbar navbar-default  navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">COVID-19 Research Japan</a>
+    </div>
+    <div id="navbar" class="navbar-collapse collapse">
+      <ul class="nav navbar-nav">
+        <li>
+  <a href="index.html">
+    <span class="fa fa-home"></span>
+     
+    Home
+  </a>
+</li>
+<li class="dropdown">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+    <span class="fa fa-navicon"></span>
+     
+    研究
+     
+    <span class="caret"></span>
+  </a>
+  <ul class="dropdown-menu" role="menu">
+    <li>
+      <a href="ve_nagasaki_v3.html">VERSUS（第3報）</a>
+    </li>
+    <li>
+      <a href="ve_nagasaki_v2.html">VERSUS（第2報）</a>
+    </li>
+    <li>
+      <a href="新型コロナワクチンの有効性研究.html">VERSUS（第1報）</a>
+    </li>
+  </ul>
+</li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+  <a href="about.html">サイトポリシー</a>
+</li>
+<li>
+  <a href="inquiry.html">お問い合わせ</a>
+</li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div><!--/.container -->
+</div><!--/.navbar -->
+
+<div id="header">
+
+
+
+
+</div>
+
+
+<div id="新型コロナワクチンの有効性に関する研究-国内多施設共同症例対照研究" class="section level3">
+<h3>新型コロナワクチンの有効性に関する研究 〜国内多施設共同症例対照研究〜</h3>
+<p><strong>Vaccine Effectiveness Real-Time Surveillance for SARS-CoV-2 (VERSUS) Study、第3報</strong></p>
+<p><strong>長崎大学熱帯医学研究所</strong></p>
+<p>掲載日：2022年1月26日</p>
+</div>
+<div id="要約" class="section level3">
+<h3>要約</h3>
+<p>長崎大学熱帯医学研究所を中心とする研究チームは、全国の医療機関（病院および診療所）と協力し、新型コロナワクチンの有効性を評価する研究を2021年7月1日から開始した。今回、新型コロナウイルスの変異株B.1.1.529 系統（オミクロン株）が全国で広がり始めた2022年1月1日以降に新型コロナウイルス検査を受けた患者情報を用いて、この期間の発症予防における新型コロナワクチンの有効性について暫定値をまとめた。16歳～64歳において、ファイザー社製あるいはモデルナ社製いずれかのワクチンの2回接種完了（2回接種後14日以上経過）による発症予防における有効性を51.7% (95%信頼区間：2.0～76.2%） と推定した。デルタ株が流行した2021年7月1日から9月30日における同値は88.7% (95%信頼区間：78.8%～93.9%)であり、新型コロナワクチンの有効性は低下していると考えられた。 本報告は極めてサンプルサイズが限られているが、公衆衛生学的意義を鑑みつつ、暫定値を報告した。本報告は長期サーベイランス研究の一部であり、随時アップデートした結果を報告する予定である。</p>
+</div>
+<div id="背景" class="section level3">
+<h3>背景</h3>
+<p>長崎大学熱帯医学研究所を中心とする研究チームは、全国の医療機関（病院および診療所）と協力し、新型コロナワクチンの有効性を評価する研究を2021年7月1日から開始した。今回、新型コロナウイルスの変異株B.1.1.529 系統（オミクロン株）が全国で広がり始めた2022年1月1日以降に新型コロナウイルス検査を受けた患者情報を用いて、この期間の発症予防における新型コロナワクチンの有効性について暫定値をまとめた。16歳～64歳において、ファイザー社製あるいはモデルナ社製いずれかのワクチンの2回接種完了（2回接種後14日以上経過）による発症予防における有効性を51.7% (95%信頼区間：2.0～76.2%） と推定した。デルタ株が流行した2021年7月1日から9月30日における同値は88.7% (95%信頼区間：78.8%～93.9%)であり、新型コロナワクチンの有効性は低下していると考えられた。 本報告は極めてサンプルサイズが限られているが、公衆衛生学的意義を鑑みつつ、暫定値を報告した。本報告は長期サーベイランス研究の一部であり、随時アップデートした結果を報告する予定である。</p>
+</div>
+<div id="方法" class="section level3">
+<h3>方法</h3>
+<p>2021年7月1日から開始しているサーベイランス研究(VERSUS study)のうち、2022年1月1日から1月21日までに全国4都県（東京都、神奈川県、埼玉県、愛知県）、計5か所の病院または診療所において、新型コロナウイルス感染症が疑われる症状1)で受診した16歳以上の患者を対象に、患者基本情報、症状、新型コロナワクチン接種歴（接種の有無、接種回数、接種日、接種したワクチンの種類）、新型コロナウイルス検査結果のデータを収集した。新型コロナウイルスの検査は、現在国内で確定診断に使用されている核酸増幅法検査（PCRやLAMPなど）および抗原定量検査を対象とした。新型コロナウイルス検査陽性者を症例群、陰性者を対照群とした（図1）。発症から15日以降に検査を受けた患者および発症日が不明の患者を解析から除外し、同一患者は定義2)に基づいて除外した。65歳以上は新型コロナワクチン優先接種対象であり、接種時期やワクチン接種後の経過期間などに交絡がある可能性を考慮して、16歳～64歳、65歳以上に分けての解析を予定したが、65歳以上はサンプルサイズが極めて少なかったため、本報告では16～64歳のみを解析対象とした。</p>
+<p><img src="data/ve_nagasaki_v3/ve_nagasaki_v3_fig1.png" width="600" /></p>
+<p>新型コロナワクチン接種歴は、未接種、1回のみ接種（接種後13日以内）、1回のみ接種完了（接種後14日以上経過）、2回接種（2回目接種後13日以内）、2回接種完了（2回目接種後14日以上経過）、3回接種（3回目接種後13日以内）、3回接種完了（3回目接種後14日以上経過）、接種歴不明の8つのグループに分けた。検査結果（陽性・陰性）に接種歴を含む種々の要因が与える影響を、混合効果ロジスティック回帰モデルを構築して調整オッズ比と95%信頼区間を算出して評価した。ワクチンの有効性は、(1-調整オッズ比)×100%で算出した。回帰モデルには、検査結果（陽性・陰性）を被説明変数、新型コロナワクチン接種歴、年齢、性別、基礎疾患の有無、検査実施カレンダー週、新型コロナウイルス感染症患者との接触の有無を固定効果 （fixed effect）、検査実施医療機関を変量効果 (random effect)の説明変数として組み込んだ。サンプルサイズが限られていたため、ワクチンの種類はファイザー社製 (BNT162b2)・モデルナ社製 (mRNA-1273)の両方を含めた解析のみをおこなった。正確なワクチン接種日が不明であった患者については、接種日の推定法が接種後の経過日数、さらには接種完了の有無の判断にも影響しうる。感度分析として、複数の方法で接種日を推定した解析を行った。また、接種したワクチンの種類が不明な患者については、アストラゼネカ社製ワクチンを接種した可能性もあるため、感度分析として、ワクチンの種類が不明な患者を除外した解析も行った。 本研究は長崎大学熱帯医学研究所および協力医療機関における倫理委員会で審査を受け、承認された後、実施した（長崎大学熱帯医学研究所倫理委員会における承認番号：210225257）。(倫理委員会がない医療機関では、長崎大学熱帯医学研究所倫理委員会で一括審査を行った。)</p>
+</div>
+<div id="結果" class="section level3">
+<h3>結果</h3>
+<p>全国4都県計5か所の医療機関において、2022年1月1日から1月21日までに新型コロナウイルス感染症が疑われる症状があり、検査を受けた16歳以上の患者513名が登録された。そのうち、発症日から15日以降に検査を受けた11名、発症日が不明の6名、同一患者2)の7名、65歳以上の71名、アストラゼネカ社製新型コロナワクチンを接種した１名を解析から除外し、合計417名を解析に含めた(図2)。</p>
+<p><img src="data/ve_nagasaki_v3/ve_nagasaki_v3_fig2.png" height="400" /></p>
+<p>解析対象者の基本情報を表１に示す。年齢中央値（四分位範囲）32歳（24～43歳）、男性は227名（54.4%）、416名（99.8%）は自宅生活者であり、43名（10.3%）に基礎疾患3)があった。67名（16.1%）に新型コロナウイルス感染症患者との接触歴があった。解析対象者の新型コロナワクチン接種歴を表2に示す。未接種53名（12.7%）、1回のみ接種完了5名（1.2%）、2回接種完了者346名（83.0%）、接種歴不明1名（0.2%）であった。</p>
+<p><strong>表 1：解析対象者（16歳～64歳）の基本情報と検査方法</strong></p>
+<template id="e7e3fc6c-309f-47f5-b8b7-24a56f5aec42"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  table-layout: fixed;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style><div class="tabwid"><style>.cl-1fab6c76{border-collapse:collapse;}.cl-1fa40904{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1fa417a0{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-1fa417b4{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-1fa470ba{width:144pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fa470d8{width:144pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fa470e2{width:144pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fa470e3{width:144pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fa470ec{width:144pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-1fab6c76'><thead><tr style="overflow-wrap:break-word;"><td class="cl-1fa470ec"><p class="cl-1fa417a0"><span class="cl-1fa40904"> </span></p></td><td class="cl-1fa470ec"><p class="cl-1fa417a0"><span class="cl-1fa40904">全体 (n=417)</span></p></td><td class="cl-1fa470ec"><p class="cl-1fa417a0"><span class="cl-1fa40904">検査陽性 (n=116)</span></p></td><td class="cl-1fa470ec"><p class="cl-1fa417a0"><span class="cl-1fa40904">検査陰性 (n=301)</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">年齢 n. (%)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　16-29歳</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">193 (46.3)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">59 (50.9)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">134 (44.5)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　30-39歳</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">97 (23.3)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">32 (27.6)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">65 (21.6)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　40-49歳</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">67 (16.1)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">16 (13.8)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">51 (16.9)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　50-59歳</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">47 (11.3)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">6 (5.2)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">41 (13.6)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　60-64歳</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">13 (3.1)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">3 (2.6)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">10 (3.3)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">性別 n.(%)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　男性</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">227 (54.4)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">63 (54.3)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">164 (54.5)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　女性</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">190 (45.6)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">53 (45.7)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">137 (45.5)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">居住地 n. (%)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　自宅</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">416 (99.8)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">116 (100)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">300 (99.7)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　その他</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">1 (0.2)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">0</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">1 (0.3)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">基礎疾患の有 n. (%)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　有</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">43 (10.3)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">5 (4.3)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">38 (12.6)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　無</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">362 (86.8)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">106 (91.4)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">256 (85.1)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　不明</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">12 (2.9)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">5 (4.3)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">7 (2.3)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">基礎疾患詳 n. (%)　</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　慢性心疾患</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">5 (1.2)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">0</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">5 (1.7)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　慢性呼吸器疾患</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">10 (2.4)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">2 (1.7)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">8 (2.7)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　肥満</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">6 (1.4)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">1 (0.9)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">5 (1.7)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　悪性腫瘍</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">7 (1.7)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">1 (0.9)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">6 (2.0)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　糖尿病</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">14 (3.4)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">0</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">14 (4.7)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　慢性腎疾患</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">3 (0.7)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">0</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">3 (1.0)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　透析</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">1 (0.2)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">0</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">1 (0.3)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　肝硬変</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">0</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">0</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　免疫抑制剤の使用</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">4 (1.0)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">1 (0.9)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">3 (1.0)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　妊娠</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">3 (0.7)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">0</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">3 (1.0)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">喫煙歴 n. (%)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　なし</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">301 (72.2)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">90 (77.6)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">211 (70.1)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　過去に吸っていた</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">39 (9.4)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">7 (6.0)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">32 (10.6)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　現在吸っている</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">72 (17.3)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">19 (16.4)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">53 (17.6)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　不明</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">5 (1.2)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">0</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">5 (1.7)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">医療従事者 n. (%)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">18 (4.3)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">3 (2.6)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">15 (5.0)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">新型コロナウイルス感染症患者との接触 n. (%)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　有</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">67 (16.1)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">38 (32.8)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">29 (9.6)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　無</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">335 (80.3)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">74 (63.8)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">261 (86.7)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　不明</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">15 (3.6)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">4 (3.4)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">11 (3.7)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">検査方法 n. (%)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470d8"><p class="cl-1fa417b4"><span class="cl-1fa40904">　核酸増幅法検査</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">155 (37.2)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">58 (50.0)</span></p></td><td class="cl-1fa470ba"><p class="cl-1fa417a0"><span class="cl-1fa40904">97 (32.2)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fa470e2"><p class="cl-1fa417b4"><span class="cl-1fa40904">　抗原定量検査</span></p></td><td class="cl-1fa470e3"><p class="cl-1fa417a0"><span class="cl-1fa40904">262 (62.8)</span></p></td><td class="cl-1fa470e3"><p class="cl-1fa417a0"><span class="cl-1fa40904">58 (50.0)</span></p></td><td class="cl-1fa470e3"><p class="cl-1fa417a0"><span class="cl-1fa40904">204 (67.8)</span></p></td></tr></tbody></table></div></template>
+<div id="5c70ecd3-f130-4527-900f-83735e56190e"></div>
+<script>
+var dest = document.getElementById("5c70ecd3-f130-4527-900f-83735e56190e");
+var template = document.getElementById("e7e3fc6c-309f-47f5-b8b7-24a56f5aec42");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;"
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+fantome.appendChild(templateContent);
+</script>
+
+<p><strong>表 2：解析対象者（16歳～64歳）のワクチン接種歴</strong></p>
+<template id="773c3cbf-060f-4e2c-bee6-9e448b382121"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  table-layout: fixed;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style><div class="tabwid"><style>.cl-1fb84ff4{border-collapse:collapse;}.cl-1fb276d8{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1fb284d4{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-1fb284e8{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-1fb2c228{width:144pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fb2c23c{width:144pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fb2c246{width:144pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fb2c250{width:144pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fb2c25a{width:144pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(255, 255, 255, 0.00);border-top: 0 solid rgba(255, 255, 255, 0.00);border-left: 0 solid rgba(255, 255, 255, 0.00);border-right: 0 solid rgba(255, 255, 255, 0.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fb2c25b{width:144pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-1fb84ff4'><thead><tr style="overflow-wrap:break-word;"><td class="cl-1fb2c25b"><p class="cl-1fb284d4"><span class="cl-1fb276d8"> </span></p></td><td class="cl-1fb2c25b"><p class="cl-1fb284d4"><span class="cl-1fb276d8">  </span></p></td><td class="cl-1fb2c25b"><p class="cl-1fb284d4"><span class="cl-1fb276d8">全体 (n=417)</span></p></td><td class="cl-1fb2c25b"><p class="cl-1fb284d4"><span class="cl-1fb276d8">検査陽性 (n=116)</span></p></td><td class="cl-1fb2c25b"><p class="cl-1fb284d4"><span class="cl-1fb276d8">検査陰性 (n=301)</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-1fb2c23c"><p class="cl-1fb284e8"><span class="cl-1fb276d8">ワクチン接種 n. (%)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8"></span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8"></span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8"></span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fb2c23c"><p class="cl-1fb284e8"><span class="cl-1fb276d8">　なし</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8"></span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">53 (12.7)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">24 (20.7)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">29 (9.6)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fb2c23c"><p class="cl-1fb284e8"><span class="cl-1fb276d8">　1回接種後13日以内</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8"></span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">0</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">0</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td  colspan="2"class="cl-1fb2c23c"><p class="cl-1fb284e8"><span class="cl-1fb276d8">　1回のみ接種完了（接種後14日以上経過）</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">5 (1.2)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">3 (2.6)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">2 (0.7)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fb2c23c"><p class="cl-1fb284e8"><span class="cl-1fb276d8">　2回接種後13日以内</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8"></span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">3 (0.7)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">0</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">3 (1.0)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td  colspan="2"class="cl-1fb2c23c"><p class="cl-1fb284e8"><span class="cl-1fb276d8">　2回接種完了（接種後14日以上経過）</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">346 (83.0)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">88 (75.9)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">258 (85.7)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fb2c23c"><p class="cl-1fb284e8"><span class="cl-1fb276d8">　3回接種後13日以内</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8"></span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">3 (0.7)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">0</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">3 (1.0)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td  colspan="2"class="cl-1fb2c23c"><p class="cl-1fb284e8"><span class="cl-1fb276d8">　3回接種完了（接種後14日以上経過）</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">6 (1.4)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">0</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">6 (2.0)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fb2c23c"><p class="cl-1fb284e8"><span class="cl-1fb276d8">　接種歴不明</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8"></span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">1 (0.2)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">1 (0.9)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">0</span></p></td></tr><tr style="overflow-wrap:break-word;"><td  colspan="2"class="cl-1fb2c23c"><p class="cl-1fb284e8"><span class="cl-1fb276d8">ワクチンの種類* n. (%)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8"></span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8"></span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fb2c23c"><p class="cl-1fb284e8"><span class="cl-1fb276d8">　ファイザー社製</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8"></span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">206 (56.7)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">49 (53.8)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">157 (57.7)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fb2c23c"><p class="cl-1fb284e8"><span class="cl-1fb276d8">　モデルナ社製</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8"></span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">108 (29.8)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">27 (29.7)</span></p></td><td class="cl-1fb2c228"><p class="cl-1fb284d4"><span class="cl-1fb276d8">81 (29.8)</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fb2c250"><p class="cl-1fb284e8"><span class="cl-1fb276d8">　不明</span></p></td><td class="cl-1fb2c246"><p class="cl-1fb284d4"><span class="cl-1fb276d8"></span></p></td><td class="cl-1fb2c246"><p class="cl-1fb284d4"><span class="cl-1fb276d8">49 (13.5)</span></p></td><td class="cl-1fb2c246"><p class="cl-1fb284d4"><span class="cl-1fb276d8">15 (16.5)</span></p></td><td class="cl-1fb2c246"><p class="cl-1fb284d4"><span class="cl-1fb276d8">34 (12.5)</span></p></td></tr></tbody><tfoot><tr style="overflow-wrap:break-word;"><td  colspan="5"class="cl-1fb2c25a"><p class="cl-1fb284e8"><span class="cl-1fb276d8">*ワクチン接種歴のある363名のみ</span></p></td></tr></tfoot></table></div></template>
+<div id="f1104b68-1ba1-411f-8332-c887fc807da6"></div>
+<script>
+var dest = document.getElementById("f1104b68-1ba1-411f-8332-c887fc807da6");
+var template = document.getElementById("773c3cbf-060f-4e2c-bee6-9e448b382121");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;"
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+fantome.appendChild(templateContent);
+</script>
+
+<p>研究対象者全体の83.0% (346人)が2回接種完了者で、未接種者は12.7% (53人)にとどまった。一方で検査陽性率は2回接種完了者が25.4% (88人)、非接種者が45.3% (24人)で2回接種完了者が有意に低かった(粗オッズ比0.412、95%信頼区間: 0.219～0.784)。 16歳から64歳の患者におけるファイザー社製・モデルナ社製いずれかのワクチン2回接種完了者（2回目接種後14日以上経過）の未接種者に対する検査陽性の調整オッズ比およびワクチンの有効率を表3に示す。調整オッズ比は0.483（95%信頼区間：0.238～0.980）、調整オッズ比を用いたワクチンの有効率は51.7% （95%信頼区間：2.0～76.2%）であった。調整因子には、固定効果として年齢、性別、基礎疾患の有無、検査実施カレンダー週、新型コロナウイルス感染症患者との接触の有無、変量効果として検査実施医療機関を組み込んでいる。</p>
+<p><strong>表 3：16歳から64歳における2回接種完了者の未接種者に対する検査陽性の調整オッズ比およびワクチン有効率</strong></p>
+<template id="d373c4ff-605e-4703-be60-fa3a282d1ea2"><style>
+.tabwid table{
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  table-layout: fixed;
+  border-spacing: 0;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style><div class="tabwid"><style>.cl-1fc6edf2{border-collapse:collapse;}.cl-1fc1e456{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-1fc1f1f8{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-1fc1f20c{margin:0;text-align:left;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-1fc1f216{margin:0;text-align:right;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:3pt;padding-top:3pt;padding-left:3pt;padding-right:3pt;line-height: 1;background-color:transparent;}.cl-1fc222d6{width:252pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fc222ea{width:252pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fc222f4{width:252pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fc222fe{width:252pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fc22308{width:252pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fc22312{width:252pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-1fc2231c{width:252pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(0, 0, 0, 1.00);border-top: 2pt solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-1fc6edf2'><thead><tr style="overflow-wrap:break-word;"><td class="cl-1fc2231c"><p class="cl-1fc1f1f8"><span class="cl-1fc1e456"> </span></p></td><td class="cl-1fc2231c"><p class="cl-1fc1f1f8"><span class="cl-1fc1e456">  </span></p></td><td class="cl-1fc2231c"><p class="cl-1fc1f1f8"><span class="cl-1fc1e456">調整オッズ比<br>（95%信頼区間）</span></p></td><td class="cl-1fc2231c"><p class="cl-1fc1f1f8"><span class="cl-1fc1e456">ワクチン有効率(%)<br>（95%信頼区間）</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td  colspan="2"class="cl-1fc222d6"><p class="cl-1fc1f20c"><span class="cl-1fc1e456">ファイザー社製あるいはモデルナ社製</span></p></td><td class="cl-1fc222f4"><p class="cl-1fc1f216"><span class="cl-1fc1e456"></span></p></td><td class="cl-1fc222f4"><p class="cl-1fc1f216"><span class="cl-1fc1e456"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-1fc222d6"><p class="cl-1fc1f20c"><span class="cl-1fc1e456">　未接種者</span></p></td><td class="cl-1fc222ea"><p class="cl-1fc1f1f8"><span class="cl-1fc1e456"></span></p></td><td class="cl-1fc222f4"><p class="cl-1fc1f216"><span class="cl-1fc1e456">1.000</span></p></td><td class="cl-1fc222f4"><p class="cl-1fc1f216"><span class="cl-1fc1e456"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td  colspan="2"class="cl-1fc222fe"><p class="cl-1fc1f20c"><span class="cl-1fc1e456">　2回接種完了（2回目接種後14日以上経過）</span></p></td><td class="cl-1fc22312"><p class="cl-1fc1f216"><span class="cl-1fc1e456">0.483 (0.238 to 0.980)</span></p></td><td class="cl-1fc22312"><p class="cl-1fc1f216"><span class="cl-1fc1e456">51.7 (2.0 to 76.2)</span></p></td></tr></tbody></table></div></template>
+<div id="3b8b932a-ebfe-445f-b37d-c9ae93beb4a3"></div>
+<script>
+var dest = document.getElementById("3b8b932a-ebfe-445f-b37d-c9ae93beb4a3");
+var template = document.getElementById("d373c4ff-605e-4703-be60-fa3a282d1ea2");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;"
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+fantome.appendChild(templateContent);
+</script>
+
+<p>第2報で報告した2021年7月から9月の登録患者情報から求めたワクチンの有効性と今回のワクチンの有効性の比較を図3に示す。2021年7月から9月のワクチンの有効性と比較して、今回、有効性が低下していることを確認した。</p>
+<p><img src="data/ve_nagasaki_v3/ve_nagasaki_v3_fig3.png" height="250" /></p>
+<p>正確なワクチン接種日が不明であった患者については、接種日の推定法が接種後の経過日数、接種完了の有無の判断にも影響しうるため、今回は感度分析として複数の方法で接種日を推定した解析結果を比較したが、調整オッズ比に与える影響は限定的であった。また、接種したワクチンの種類が不明な患者を除外した解析でも、調整オッズ比に与える影響はやはり限定的であった。</p>
+</div>
+<div id="考察" class="section level3">
+<h3>考察</h3>
+<p>本報告では、2022年1月1日から1月21日の期間において、16歳から64歳を対象としたファイザー社製新型コロナワクチン(BNT162b2)あるいはモデルナ社製新型コロナワクチン(mRNA-1273)について、2回目接種後14日以上経過したものにおいて未接種者と比較し、発症予防における有効性は51.7% (95%信頼区間：2.0～76.2%）と推定された。2021年7月1日から9月30日(B1.617.2系統（デルタ株）流行期)と比較して、発症予防における有効性は低下していることが示された。本報告に組み込まれた患者は2022年1月1日から1月21日に検査を受けた患者であり、全国的にオミクロン株の感染が拡大した時期であった。（本報告に組み込まれた東京都、神奈川県、埼玉県、愛知県では9割以上がオミクロン株であると推定された時期であった(5)。）オミクロン株は、ワクチン接種者の血清による中和能の低下が様々な研究から示され(6-9)、発症予防におけるワクチンの有効性が、デルタ株と比較してオミクロン株では低下すると考えられている。一方、ワクチンの2回接種からの時間経過によるワクチンの有効性の低下も多数報告されている(10-12)。2021年7月～9月の結果と比較した本報告のワクチンの有効性低下の原因として、オミクロン株に対するワクチンの有効性の低下によるもの、またはワクチンの2回接種からの時間経過によるものが考えられる。本報告のサンプルサイズは極めて限られたものであり、今後、対象患者の集積により、より詳細な解析が可能であると考えている。 なお、本報告は本研究の暫定データであり、ワクチンの有効性の推定値の信頼区間も広く、今後の対象患者の蓄積と解析により、変動すると考えられる。また、ワクチンの入院予防における有効性や重症化予防の有効性は本研究では評価ができないため、多方面からの研究が必要である。なお、研究参加医療機関の1月分の登録患者情報を使用し、今後アップデートした結果を報告する予定である。</p>
+</div>
+<div id="制限" class="section level3">
+<h3>制限</h3>
+<p>本報告にはいくつかの制限がある。1つ目は、対象患者が2022年１月1日から1月21日の全国5か所の医療機関に限られており、現時点ではサンプルサイズが極めて限定的である。2つ目は、現在日本では医療機関において受診者のワクチン接種歴を自動的に確認できるシステムは整備されていないため、接種歴は患者（または患者家族）に対する問診で得られた記録を基にしており、思い出しバイアスの影響を否定できない。正確なワクチン接種日が不明な患者については、「接種日」の推計方法を複数定めた感度分析を、接種したワクチンの種類が不明な患者については、除外した解析を行ったが、調整オッズ比の変動は小さく、一定の妥当性は担保されていると考える。3つ目は、65歳以上におけるワクチンの有効性、各ワクチンの解析や3回目接種の有効性は本報告では検討できていない。 本報告は2022年1月21日での暫定結果であり速報値であるが、公衆衛生学的に意義があると判断して報告した。今後も研究を継続し経時的な評価を行うなかで、公衆衛生学的な意義を鑑みつつ結果について共有する予定である。</p>
+</div>
+<div id="注釈" class="section level3">
+<h3>注釈</h3>
+<p>1) 発熱（37.5℃以上）、咳、倦怠感、呼吸困難、筋肉痛、咽頭痛、鼻汁・鼻閉、頭痛、下痢、味覚障害、嗅覚障害(13, 14)</p>
+<p>2) 同一症例の扱いは以下の定義を使用した(15)。</p>
+<p>・陽性結果が出る前の3週間以内、または陽性結果が出た後に採取した陰性検査は、偽陰性の可能性があるため除外する。</p>
+<p>・同じ発症日に対して行われた陰性の検査は除外する。</p>
+<p>・前回の陰性判定から7日以内に実施された陰性の検査は除外する。</p>
+<p>・各人については、無作為に選んだ3回までの検査は含める。</p>
+<p>・90日以内に複数回陽性になった場合は初めての陽性のみを組み込む。</p>
+<p>3) 慢性心疾患、慢性呼吸器疾患、肥満（BMI≧30）、悪性腫瘍（固形癌または血液腫瘍）、糖尿病、慢性腎不全、透析、肝硬変、免疫抑制薬の使用、妊娠</p>
+</div>
+<div id="研究チーム" class="section level3">
+<h3>研究チーム</h3>
+<p>長崎大学熱帯医学研究所　臨床研究部門：前田　遥、森本浩之輔</p>
+<p>大分大学　医学部　微生物学講座：齊藤信夫</p>
+<p>横浜市立大学　医学群　健康社会医学ユニット・東京大学大学院　薬学系研究科　医薬政策学： 五十嵐中　</p>
+<p><strong>参加医療施設（50音順、敬称略、本報告に含まれる医療機関のみを記載）</strong></p>
+<p>*川崎市立多摩病院：本橋伊織、宮沢　玲</p>
+<p>北福島医療センター/福島県立医科大学：山藤栄一郎</p>
+<p>群馬中央病院：阿久澤暢洋、原田 武</p>
+<p>五本木クリニック：桑満おさむ</p>
+<p>*埼玉県済生会栗橋病院：木村祐也、小美野勝、新井博美</p>
+<p>*ＪＡ愛知厚生連　豊田厚生病院：伊藤貴康</p>
+<p>市立奈良病院：森川　暢</p>
+<p>*髙木整形外科・内科：大原靖二</p>
+<p>近森病院：石田正之</p>
+<p>虹が丘病院：寺田真由美</p>
+<p>早川内科医院：早川友一郎</p>
+<p>みずほ通りクリニック：勅使川原修</p>
+<p>*ロコクリニック中目黒：嘉村洋志</p>
+<p>なお、本報告書に含まれるデータは、*の医療機関に限る。</p>
+<p><strong>研究協力</strong></p>
+<p>国立感染症研究所　感染症疫学センター：鈴木　基</p>
+</div>
+<div id="研究資金" class="section level3">
+<h3>研究資金</h3>
+<p>本研究は、AMED(国立研究開発法人日本医療研究開発機構)の課題番号JP21fk0108612の支援を受けている。</p>
+</div>
+<div id="利益相反の開示" class="section level3">
+<h3>利益相反の開示</h3>
+<p>長崎大学熱帯医学研究所　臨床研究部門は、ファイザー社より本研究に関連のない研究助成金を受けている。 東京大学大学院　薬学系研究科　医薬政策学は、武田薬品工業株式会社（モデルナ社製新型コロナワクチン(mRNA-1273)の日本国内での供給をおこなっている）より本研究に関係のない研究助成金を受けている。</p>
+</div>
+<div id="参考資料" class="section level3">
+<h3>参考資料</h3>
+<ol style="list-style-type: decimal">
+<li><p>Nauta J. Statistics in Clinical and Observational Vaccine Studies 2nd edition: Springer.</p></li>
+<li><p>Sullivan SG, Feng S, Cowling BJ. Potential of the test-negative design for measuring influenza vaccine effectiveness: a systematic review. Expert Rev Vaccines. 2014;13(12):1571-91.</p></li>
+<li><p>長崎大学熱帯医学研究所. 新型コロナワクチンの有効性に関する研究 〜国内多施設共同症例対照研究〜 第1報 Available from: <a href="https://covid-19-japan-epi.github.io/output/新型コロナワクチンの有効性研究.html" class="uri">https://covid-19-japan-epi.github.io/output/新型コロナワクチンの有効性研究.html</a></p></li>
+<li><p>長崎大学熱帯医学研究所. 新型コロナワクチンの有効性に関する研究 〜国内多施設共同症例対照研究〜第2報 Available from: <a href="https://covid-19-japan-epi.github.io/output/ve_nagasaki_v2.html" class="uri">https://covid-19-japan-epi.github.io/output/ve_nagasaki_v2.html</a></p></li>
+<li><p>厚生労働省. 新型コロナウイルス感染症（変異株）への対応、第68回（令和4年1月20日）新型コロナウイルス感染症対策アドバイザリーボード資料 Available from: <a href="https://www.mhlw.go.jp/content/10900000/000885776.pdf" class="uri">https://www.mhlw.go.jp/content/10900000/000885776.pdf</a></p></li>
+<li><p>Carreno JM, Alshammary H, Tcheou J, Singh G, Raskin A, Kawabata H, et al. Activity of convalescent and vaccine serum against SARS-CoV-2 Omicron. Nature. 2021.</p></li>
+<li><p>Cele S, Jackson L, Khoury DS, Khan K, Moyo-Gwete T, Tegally H, et al. Omicron extensively but incompletely escapes Pfizer BNT162b2 neutralization. Nature. 2021.</p></li>
+<li><p>Dejnirattisai W, Shaw RH, Supasa P, Liu C, Stuart ASV, Pollard AJ, et al. Reduced neutralisation of SARS-CoV-2 omicron B.1.1.529 variant by post-immunisation serum. The Lancet. 2022;399(10321):234-6.</p></li>
+<li><p>Lu L, Mok BW, Chen LL, Chan JM, Tsang OT, Lam BH, et al. Neutralization of SARS-CoV-2 Omicron variant by sera from BNT162b2 or Coronavac vaccine recipients. Clin Infect Dis. 2021.</p></li>
+<li><p>Goldberg Y, Mandel M, Bar-On YM, Bodenheimer O, Freedman L, Haas EJ, et al. Waning Immunity after the BNT162b2 Vaccine in Israel. N Engl J Med. 2021.</p></li>
+<li><p>Tartof SY, Slezak JM, Fischer H, Hong V, Ackerson BK, Ranasinghe ON, et al. Effectiveness of mRNA BNT162b2 COVID-19 vaccine up to 6 months in a large integrated health system in the USA: a retrospective cohort study. The Lancet. 2021;398(10309):1407-16.</p></li>
+<li><p>Andrews N, Tessier E, Stowe J, Gower C, Kirsebom F, Simmons R, et al. Vaccine effectiveness and duration of protection of Comirnaty, Vaxzevria and Spikevax against mild and severe COVID19 in the UK. medRxiv.2021:2021.06.28.21259420</p></li>
+<li><p>World Health Organization. Coronavirus Available from: <a href="https://www.who.int/health-topics/coronavirus#tab=tab_3" class="uri">https://www.who.int/health-topics/coronavirus#tab=tab_3</a></p></li>
+<li><p>Centers for Disease Control and Prevention. Symptoms of Coronavirus 2021 Available from: <a href="https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html" class="uri">https://www.cdc.gov/coronavirus/2019-ncov/symptoms-testing/symptoms.html</a></p></li>
+<li><p>Lopez Bernal J, Andrews N, Gower C, Gallagher E, Simmons R, Thelwall S, et al. Effectiveness of Covid-19 Vaccines against the B.1.617.2 (Delta) Variant. N Engl J Med. 2021;2021 Aug 12;385(7):585-594.</p></li>
+</ol>
+<hr />
+</div>
+<div id="問い合わせ先" class="section level3">
+<h3>問い合わせ先</h3>
+<p>長崎大学熱帯医学研究所　臨床研究部門：森本浩之輔　</p>
+<p>komorimo*nagasaki-u.ac.jp（*を@にして送信して下さい）</p>
+</div>
+
+<a rel="license" href="http://creativecommons.org/licenses/by/4.0/"><img alt="クリエイティブ・コモンズ・ライセンス" style="border-width:0" src="https://i.creativecommons.org/l/by/4.0/80x15.png" /></a> <a rel="license" href="http://creativecommons.org/licenses/by/4.0/">クリエイティブ・コモンズ 表示 4.0 国際 ライセンス</a>の下に提供されています。
+
+
+</div>
+</div>
+
+</div>
+
+<script>
+
+// add bootstrap table styles to pandoc tables
+function bootstrapStylePandocTables() {
+  $('tr.odd').parent('tbody').parent('table').addClass('table table-condensed');
+}
+$(document).ready(function () {
+  bootstrapStylePandocTables();
+});
+
+
+</script>
+
+<!-- tabsets -->
+
+<script>
+$(document).ready(function () {
+  window.buildTabsets("TOC");
+});
+
+$(document).ready(function () {
+  $('.tabset-dropdown > .nav-tabs > li').click(function () {
+    $(this).parent().toggleClass('nav-tabs-open');
+  });
+});
+</script>
+
+<!-- code folding -->
+
+<script>
+$(document).ready(function ()  {
+
+    // temporarily add toc-ignore selector to headers for the consistency with Pandoc
+    $('.unlisted.unnumbered').addClass('toc-ignore')
+
+    // move toc-ignore selectors from section div to header
+    $('div.section.toc-ignore')
+        .removeClass('toc-ignore')
+        .children('h1,h2,h3,h4,h5').addClass('toc-ignore');
+
+    // establish options
+    var options = {
+      selectors: "h1,h2,h3",
+      theme: "bootstrap3",
+      context: '.toc-content',
+      hashGenerator: function (text) {
+        return text.replace(/[.\\/?&!#<>]/g, '').replace(/\s/g, '_');
+      },
+      ignoreSelector: ".toc-ignore",
+      scrollTo: 0
+    };
+    options.showAndHide = true;
+    options.smoothScroll = true;
+
+    // tocify
+    var toc = $("#TOC").tocify(options).data("toc-tocify");
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    script.src  = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+
+</body>
+</html>

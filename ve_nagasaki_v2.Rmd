@@ -246,7 +246,7 @@ ft_4
 6. Sullivan SG, Feng S, Cowling BJ. Potential of the test-negative design for measuring influenza vaccine effectiveness: a systematic review. Expert Rev Vaccines. 2014;13(12):1571-91.
 
 7. 長崎大学熱帯医学研究所呼吸器感染症学分野. 新型コロナワクチンの有効性に関する研究 〜国内多施設共同症例対照研究〜  [cited 2021/11/26]
-https://covid-19-japan-epi.github.io/output/%E6%96%B0%E5%9E%8B%E3%82%B3%E3%83%AD%E3%83%8A%E3%83%AF%E3%82%AF%E3%83%81%E3%83%B3%E3%81%AE%E6%9C%89%E5%8A%B9%E6%80%A7%E7%A0%94%E7%A9%B6.html
+https://covid-19-japan-epi.github.io/output/新型コロナワクチンの有効性研究.html
 
 8. 第45回厚生労働省新型コロナウイルス感染症対策アドバイザリーボード資料新型コロナウイルス感染症（変異株）への対応等（令和3年7月28日）. [cited 2021/11/26] https://www.mhlw.go.jp/content/10900000/000812902.pdf
 
