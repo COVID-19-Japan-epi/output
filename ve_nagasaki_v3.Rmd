@@ -48,11 +48,11 @@ ft_2 <- merge_at(ft_2, i = 10, j = 1:2 )
 ft_2 <- add_footer_row(ft_2, values = c("*ワクチン接種歴のある363名のみ"), colwidths = 5)
 
 df_3 <- readxl::read_excel("./data/ve_nagasaki_v3/ve_nagasaki_table_v3.xlsx",sheet = 3,skip = 1) %>% 
-  rename(" "=1,"  "=2,"調整オッズ比\n（95%信頼区間）"=3,"ワクチン有効率(%)\n（95%信頼区間）"=4) 
+  rename(" "=1,"  "=2,"調整オッズ比\n（95%信頼区間）"=3,"ワクチン有効性(%)\n（95%信頼区間）"=4) 
 
 ft_3 <- regulartable(data = df_3,names(df_3),cwidth = 3.5, cheight = 0.20)
 ft_3 <- align(ft_3, align = "center", part = "all")
-ft_3 <- align(ft_3,j = c("調整オッズ比\n（95%信頼区間）","ワクチン有効率(%)\n（95%信頼区間）"), 
+ft_3 <- align(ft_3,j = c("調整オッズ比\n（95%信頼区間）","ワクチン有効性(%)\n（95%信頼区間）"), 
               align = "right",part = "body")
 ft_3 <- align(ft_3,j = c( " "), align = "left", part = "body")
 ft_3 <- merge_at(ft_3, i = 1, j = 1:2 )

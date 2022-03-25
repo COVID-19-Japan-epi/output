@@ -9,6 +9,8 @@ navbar:
     - text: "研究"
       icon: fa-navicon
       menu:
+        - text: "VERSUS（第4報）"
+          href: ve_nagasaki_v4.html
         - text: "VERSUS（第3報）"
           href: ve_nagasaki_v3.html
         - text: "VERSUS（第2報）"
